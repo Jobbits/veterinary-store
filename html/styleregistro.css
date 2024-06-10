@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.link {
+  color: inherit; /* Hereda el color del padre */
+  text-decoration: none; /* Elimina el subrayado */
+  cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+.link:hover {
+  text-decoration: underline; /* Opcional: subraya el texto al pasar el ratón por encima */
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: -250px; /* Ajusta para separar el fondo del contenedor */
+  width: 50%;
+  height: 100%;
+  background-color: #6CD4FF; /* Color de fondo que desees */
+}
+.background img {
+  width: 110%; /* Ajusta el tamaño de la imagen al 100% del contenedor */
+  position: absolute; /* Ajusta la posición de la imagen dentro del contenedor */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%); /* Centra verticalmente */
+  left: -200px;
+}
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  z-index: 1;
+  margin-left: 800px; /* Añade espacio entre el fondo y el contenedor */
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.password-input {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 5px;
+  background-size: cover;
+  width: 30px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.buttonr {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+.buttonI {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0f3a7a;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+.buttonv {
+  display: inline-block;
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c40707;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  margin-top: 20px;
+}
+.button:active {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #05177a;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  background-color: #004494;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}

@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: -250px; /* Ajusta para separar el fondo del contenedor */
+    width: 50%;
+    height: 100%;   
+    margin-top: 420px;
+    margin-left: -600px;
+    opacity: 0.2;
+    z-index: -1; 
+  }
+  
+.navbar, .panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+.hero {
+    background-image: url('../Images/lindo-mascota-collage-aislado.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin: 0;
+}
+.container {
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    z-index: 1;
+    
+  }
+
+.mission-vision{
+    justify-content: space-between;
+    margin: 40px 0;
+}
+.values li{
+    text-align: left;
+}
+.mission h2, .vision h2, .values h2 {
+    margin-top: 50px;
+    font-size: 50px;
+    color: #000000;
+}
+.mission, .vision, .values {
+    text-align: center; 
+}
+
+.values ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+.vision{
+    align-items: center;
+}
+.values ul li {
+    color: #000000;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.photos {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.photos h2 {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px; /* Ajusta el espacio entre las fotos según tu preferencia */
+    width: 1920px;
+    margin-left: -650px;
+}
+
+.photo-gallery img {
+    width: calc(25% - 50px); /* Ajusta el ancho de las imágenes para que ocupen más espacio */
+}
+
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 5px;
+    border-top: 2px solid rgb(88, 88, 88);
+    margin-top: 10px;
+    border-radius: 0;
+}
+
+.profile-image {
+    flex-basis: 30%;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-name {
+    color: #777777;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.profile-address {
+    font-size: 16px;
+    margin: 0;
+}
+
+.profile-content {
+    flex-basis: 70%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-sections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.section {
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.section-title {
+    color: #777777;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 0 0 5px 0; /* Espacio debajo del título */
+}
+
+.section ul {
+    color: #777777;
+    list-style-type: none;
+    padding: 40px;
+    margin: 0;
+}
+
+.section ul li {
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons div {
+    margin: 0 10px;
+    color: #777777;
+    font-size: 24px;
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medivet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-iDRIWa3iFYlSq6u120ox1wbt3AlVinbgn30ZvQnuxWTe+I8fFLwa/uekb5U64TGvsK2t8V844rQRCIFORFBNiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="stylecontac.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <div class="logo"></div>        
+            </div>
+            <div class="empresa">
+                <h1>MEDIVET</h1>
+                <div class="slogan">
+                    <h2>Tu mejor aliado en cuidado</h2>
+                </div>
+            </div>
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+                <input placeholder="Bucar Medivet" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="nav-singin border">
+                <p><span>Hola, </p>
+                    <a href="../html/iniciosesion.html" class="link">Entrar</a>
+                    <a href="../html\Registrousu.html"class="link">Registrarse</a>, Listar 
+            </div>
+            <div class="nav-return border">
+                <p><span>Devoluciones </p>
+                <p class="nav-second">& Lista</p>   
+            </div>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+            <div class="redsocial">
+                <div class="nav-fb">
+                    <a href="https://www.facebook.com/people/Cl%C3%ADnica-Veterinaria-Medivet/100063558341155/" target="_blank" class="link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>                
+                </div>
+                <div class="nav-tiktok">
+                    <a href="https://www.tiktok.com/@medivetclinica" target="_blank"class="link">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+                <div class="nav-instagram">
+                    <a href="https://www.instagram.com/medivet_pets_clinic/" target="_blank" class="link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="nav-what">
+                    <a href="https://wa.link/nzuhbc" target="_blank"class="link">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p>
+                    <a href="../index.html" class="link">Inicio</a>
+                </p>
+                <p>Productos</p>
+                <p>
+                    <a href="nosotros.html" class="link">Nosotros</a>
+                </p>
+                <p>Marcas</p>
+                <p>
+                    <a href="contactos.html" class="link">Contactanos</a>
+                </p>
+            </div>
+            <div class="panel-deals">
+                Bien Social:Adopta a tu mascota
+            </div>
+        </div>
+    </header>
+<main>
+    <main class="about-main">
+        <section class="hero">
+            <h1>Contáctanos</h1>
+        </section>
+        <div class="background">
+            <img src="../Images/logonegro.png" alt="logonegro">
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contáctanos en:</h2>
+                <p><i class="fa-solid fa-store"></i> Medivet</p>
+                <p><i class="fa-solid fa-location-arrow"></i> Av. real 123 Huancayo, Huancayo, Junin</p>
+                <p><i class="fa-brands fa-square-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=51941665322&text=*Hola%2C%20necesito%20Informaci%C3%B3n%20sobre%20tus%20productos!!*%F0%9F%98%81">941 665 322</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:contacto@medivet.com">contacto@medivet.com</a></p>
+                <p><i class="fa-solid fa-clock"></i> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
+            </div>
+            <div class="contact-form">
+                <h2>Formulario de Contacto</h2>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="nombreyapellidos">Nombre y apellidos:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="DNI">DNI:</label>
+                        <input type="text" id="DNI" name="DNI" pattern="[0-9]{8}" title="Por favor, ingrese un DNI válido de 8 dígitos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto:</label>
+                        <input type="text" id="asunto" name="asunto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="archivo">Subir Documento/Imagen:</label>
+                        <input type="file" id="archivo" name="archivo">
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>        
+    </main>
+</main>    
+    <footer>
+        <div class="profile-card">
+            <div class="profile-image">
+                <img src="../Images/logofondo.png" alt="MEDIVETLogofondo">
+                <h1 class="profile-name">MEDIVET - CNPJ 00.000.000/0000-00</h1>
+                <p class="profile-address">Av. real 123 Huancayo, Huancayo, Junin</p>
+            </div>
+            <div class="profile-content">
+                <div class="profile-sections">
+                    <div class="section">
+                        <h4 class="section-title">Atención</h4>
+                        <ul>
+                            <li>Central de Atención</li>
+                            <li>Dirección</li>
+                            <li>Preguntas Frecuentes</li>
+                            <li>mimospet@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-title">Redes Sociales</h2>
+                        <div class="social-icons">
+                            <div class="nav-fb">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                            <div class="nav-tiktok">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <div class="nav-instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="nav-what">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4 class="section-title">Política</h4>
+                        <ul>
+                            <li>Política de Privacidad</li>
+                            <li>Política de Entrega e Devolución</li>
+                            <li>Política de Compra</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h4 class="section-title">Institucional</h4>
+                        <ul>
+                            <li>Empresa</li>
+                            <li>Quienes Somos</li>
+                            <li>Contactos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </footer>
+</body>
+</html>
