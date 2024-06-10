@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medivet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-iDRIWa3iFYlSq6u120ox1wbt3AlVinbgn30ZvQnuxWTe+I8fFLwa/uekb5U64TGvsK2t8V844rQRCIFORFBNiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="styleproduct.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <div class="logo"></div>        
+            </div>
+            <div class="empresa">
+                <h1>MEDIVET</h1>
+                <div class="slogan">
+                    <h2>Tu mejor aliado en cuidado</h2>
+                </div>
+            </div>
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+                <input placeholder="Bucar Medivet" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="nav-singin border">
+                <p><span>Hola, </p>
+                    <a href="../html/iniciosesion.html" class="link">Entrar</a>
+                    <a href="../html\Registrousu.html"class="link">Registrarse</a>, Listar 
+            </div>
+            <div class="nav-return border">
+                <p><span>Devoluciones </p>
+                <p class="nav-second">& Lista</p>   
+            </div>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+            <div class="redsocial">
+                <div class="nav-fb">
+                    <a href="https://www.facebook.com/people/Cl%C3%ADnica-Veterinaria-Medivet/100063558341155/" target="_blank" class="link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>                
+                </div>
+                <div class="nav-tiktok">
+                    <a href="https://www.tiktok.com/@medivetclinica" target="_blank"class="link">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+                <div class="nav-instagram">
+                    <a href="https://www.instagram.com/medivet_pets_clinic/" target="_blank" class="link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="nav-what">
+                    <a href="https://wa.link/nzuhbc" target="_blank"class="link">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p>
+                    <a href="../index.html" class="link">Inicio</a>
+                </p>
+                <p>
+                    <a href="tiendaproductos.html" class="link">Productos</a>
+                </p>
+                <p>
+                    <a href="nosotros.html" class="link">Nosotros</a>
+                </p>
+                <p>Marcas</p>
+                <p>
+                    <a href="contactos.html" class="link">Contactanos</a>
+                </p>
+            </div>
+            <div class="panel-deals">
+                Bien Social:Adopta a tu mascota
+            </div>
+        </div>
+    </header>
+    <main>
+        <aside class="filters">
+            <h2>Filtros</h2>
+            <div class="filter-group">
+                <h3>Tipo de Mascota</h3>
+                <label><input type="checkbox" value="perro" class="filter-checkbox"> Perro</label>
+                <label><input type="checkbox" value="gato" class="filter-checkbox"> Gato</label>
+                <label><input type="checkbox" value="ave" class="filter-checkbox"> Ave</label>
+                <label><input type="checkbox" value="pez" class="filter-checkbox"> Pez</label>
+            </div>
+            <div class="filter-group">
+                <h3>Precio</h3>
+                <label><input type="checkbox" value="low" class="filter-checkbox"> Menos de $20</label>
+                <label><input type="checkbox" value="medium" class="filter-checkbox"> $20 - $50</label>
+                <label><input type="checkbox" value="high" class="filter-checkbox"> Más de $50</label>
+            </div>
+        </aside>
+        <section class="products">
+            <div class="product" data-category="perro" data-price="low">
+                <h3>Juguete para Perro</h3>
+                <p>$15</p>
+            </div>
+            <div class="product" data-category="gato" data-price="medium">
+                <h3>Rascador para Gato</h3>
+                <p>$30</p>
+            </div>
+            <div class="product" data-category="ave" data-price="high">
+                <h3>Jaula para Ave</h3>
+                <p>$75</p>
+            </div>
+            <div class="product" data-category="pez" data-price="low">
+                <h3>Alimento para Peces</h3>
+                <p>$10</p>
+            </div>
+            <!-- Agrega más productos aquí -->
+        </section>
+    </main>
+    <footer>
+        <div class="profile-card">
+            <div class="profile-image">
+                <img src="../Images/logofondo.png" alt="MEDIVETLogofondo">
+                <h1 class="profile-name">MEDIVET - CNPJ 00.000.000/0000-00</h1>
+                <p class="profile-address">Av. real 123 Huancayo, Huancayo, Junin</p>
+            </div>
+            <div class="profile-content">
+                <div class="profile-sections">
+                    <div class="section">
+                        <h4 class="section-title">Atención</h4>
+                        <ul>
+                            <li>Central de Atención</li>
+                            <li>Dirección</li>
+                            <li>Preguntas Frecuentes</li>
+                            <li>mimospet@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-title">Redes Sociales</h2>
+                        <div class="social-icons">
+                            <div class="nav-fb">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                            <div class="nav-tiktok">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <div class="nav-instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="nav-what">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4 class="section-title">Política</h4>
+                        <ul>
+                            <li>Política de Privacidad</li>
+                            <li>Política de Entrega e Devolución</li>
+                            <li>Política de Compra</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h4 class="section-title">Institucional</h4>
+                        <ul>
+                            <li>Empresa</li>
+                            <li>Quienes Somos</li>
+                            <li>Contactos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </footer>
+    <script src="../java/scriptproducto.js"></script>
+</body>
+</html>
