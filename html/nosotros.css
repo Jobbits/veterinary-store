@@ -14,24 +14,6 @@ body {
     opacity: 0.2;
     z-index: -1; 
   }
-  
-.navbar, .panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.link {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
-
 .hero {
     background-image: url('../Images/lindo-mascota-collage-aislado.jpg');
     background-size: cover;
@@ -101,7 +83,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 5px; /* Ajusta el espacio entre las fotos según tu preferencia */
-    width: 1920px;
+    width: 1900px;
     margin-left: -650px;
 }
 
