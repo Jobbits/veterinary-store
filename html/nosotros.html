@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="nosotros.css">
+    <link rel="stylesheet" href="../path/to/fontawesome/css/all.css">
 </head>
 <body>
     <header>
@@ -25,18 +26,21 @@
                 <select class="search-select">
                     <option>All</option>
                 </select>
-                <input placeholder="Bucar Medivet" class="search-input">
+                <input placeholder="Buscar Medivet" class="search-input">
                 <div class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="nav-singin border">
-                <p><span>Hola, </p>
+            <div class="nav-singin border" id="user-info">
+                <p><span>Hola, </span><span id="username">Invitado</span></p>
+                <div id="auth-links">
                     <a href="../html/iniciosesion.html" class="link">Entrar</a>
-                    <a href="../html\Registrousu.html"class="link">Registrarse</a>, Listar 
+                    <a href="../html/Registrousu.html" class="link">Registrarse</a>
+                </div>
+                <button id="logout-btn" style="display: none;">Cerrar sesión</button>
             </div>
             <div class="nav-return border">
-                <p><span>Devoluciones </p>
+                <p><span>Devoluciones</span></p>
                 <p class="nav-second">& Lista</p>   
             </div>
             <div class="nav-cart border">
@@ -50,7 +54,7 @@
                     </a>                
                 </div>
                 <div class="nav-tiktok">
-                    <a href="https://www.tiktok.com/@medivetclinica" target="_blank"class="link">
+                    <a href="https://www.tiktok.com/@medivetclinica" target="_blank" class="link">
                         <i class="fa-brands fa-tiktok"></i>
                     </a>
                 </div>
@@ -60,7 +64,7 @@
                     </a>
                 </div>
                 <div class="nav-what">
-                    <a href="https://wa.link/nzuhbc" target="_blank"class="link">
+                    <a href="https://wa.link/nzuhbc" target="_blank" class="link">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
                 </div>
@@ -83,11 +87,11 @@
                 </p>
                 <p>Marcas</p>
                 <p>
-                    <a href="contactos.html" class="link">Contactos</a>
+                    <a href="contactos.html" class="link">Contactanos</a>
                 </p>
             </div>
             <div class="panel-deals">
-                Bien Social:Adopta a tu mascota
+                Bien Social: Adopta a tu mascota
             </div>
         </div>
     </header>
@@ -190,4 +194,5 @@
         </div>   
     </footer>
 </body>
+<script src="../java/script.js"></script> 
 </html>

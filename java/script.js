@@ -43,3 +43,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const usernameSpan = document.getElementById('username');
+    const authLinks = document.getElementById('auth-links');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    function updateUI(isLoggedIn, username) {
+        if (isLoggedIn) {
+            usernameSpan.textContent = username;
+            authLinks.style.display = 'none';
+            logoutBtn.style.display = 'block';
+        } else {
+            usernameSpan.textContent = 'Invitado';
+            authLinks.style.display = 'block';
+            logoutBtn.style.display = 'none';
+        }
+    }
+
+    function validateLogin() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const username = localStorage.getItem('username') || 'Invitado';
+
+        updateUI(isLoggedIn, username);
+    }
+
+    logoutBtn.addEventListener('click', function() {
+        localStorage.setItem('isLoggedIn', 'false');
+        localStorage.removeItem('username');
+        updateUI(false, 'Invitado');
+    });
+
+    window.addEventListener('storage', function(event) {
+        if (event.key === 'isLoggedIn') {
+            validateLogin();
+        }
+    });
+
+    validateLogin();
+});
