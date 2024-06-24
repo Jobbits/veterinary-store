@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styleregistro.css">
+  <title>Medivet</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-iDRIWa3iFYlSq6u120ox1wbt3AlVinbgn30ZvQnuxWTe+I8fFLwa/uekb5U64TGvsK2t8V844rQRCIFORFBNiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="background">
+    <img src="../Images/logonegro.png" alt="logonegro">
+  </div>
+  <div class="container">
+    <form action="/registroUsuario" method="POST">
+      <h2>Registro de Cuenta</h2>
+      <div class="input-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="input-group">
+        <label for="nombre">Apellido Paterno:</label>
+        <input type="text" id="apellidopa" name="apellidopa" required>
+      </div>
+      <div class="input-group">
+        <label for="nombre">Apellido Materno:</label>
+        <input type="text" id="apellidoma" name="apellidoma" required>
+      </div>
+      <div class="input-group">
+        <label for="nombre">Fecha de Nacimiento:</label>
+        <input type="date" name="fechaNacimiento" required>
+      </div>
+      <div class="input-group">
+        <label for="nombre">Direccion:</label>
+        <input type="text" id="Direccion" name="Direccion" required>
+      </div>
+      <div class="input-group">
+        <label for="nombre">Docuemento Nacional de Identidad:</label>
+        <input type="text" id="DNI" name="DNI" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="contraseña">Contraseña:</label>
+        <div class="password-input">
+            <input type="password" id="contraseña" name="contraseña" required>
+            <span class="toggle-password" onclick="togglePassword('contraseña', 'togglePasswordIcon')">
+                <i id="togglePasswordIcon" class="fa-regular fa-eye"></i>
+            </span>
+        </div>
+    </div>
+    <div class="input-group">
+        <label for="confirmarContraseña">Confirmar Contraseña:</label>
+        <div class="password-input">
+            <input type="password" id="confirmarContraseña" name="confirmarContraseña" required>
+            <span class="toggle-password" onclick="togglePassword('confirmarContraseña', 'toggleConfirmPasswordIcon')">
+                <i id="toggleConfirmPasswordIcon" class="fa-regular fa-eye"></i>
+            </span>
+        </div>
+    </div>
+    <div class="input-group">
+        <p id="passwordMatchMessage" style="color: red; display: none;">Las contraseñas no coinciden</p>
+    </div>
+      <button type="submit" class="buttonr">Registrarse</button>
+      <a href="../index.html" class="buttonv">Volver</a>
+
+      
+    </form >
+  </div>
+
+  <script>
+    function togglePassword(fieldId, iconId) {
+        const passwordInput = document.getElementById(fieldId);
+        const passwordIcon = document.getElementById(iconId);
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.classList.remove('fa-eye');
+            passwordIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.classList.remove('fa-eye-slash');
+            passwordIcon.classList.add('fa-eye');
+        }
+    }
+
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+        const password = document.getElementById('contraseña').value;
+        const confirmPassword = document.getElementById('confirmarContraseña').value;
+
+        if (password !== confirmPassword) {
+            event.preventDefault();
+            document.getElementById('passwordMatchMessage').style.display = 'block';
+        } else {
+            document.getElementById('passwordMatchMessage').style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

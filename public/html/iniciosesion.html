@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styleregistro.css">
+  <title>Medivet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="background">
+    <img src="../Images/logonegro.png" alt="logonegro">
+  </div>
+  <div class="container">
+    <form action="#" method="POST">
+      <h2>Iniciar sesion de Cuenta</h2>
+      <div class="input-group">
+        <label for="nombre">Usuario o correo electronico</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="input-group">
+        <label for="contraseña">Contraseña:</label>
+        <div class="password-input">
+          <input type="password" id="contraseña" name="contraseña" required>
+          <span class="toggle-password" onclick="togglePassword()">
+              <i class="fa-regular fa-eye"></i>
+          </span>
+        </div>
+      <button type="submit" class="buttonI">iniciar Sesion</button>
+      <a href="../index.html" class="buttonv">Volver</a>
+      
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+        const passwordInput = document.getElementById('contraseña');
+        const passwordIcon = document.querySelector('.toggle-password i');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.classList.remove('fa-eye');
+            passwordIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.classList.remove('fa-eye-slash');
+            passwordIcon.classList.add('fa-eye');
+        }
+    }
+</script>
+</body>
+</html>

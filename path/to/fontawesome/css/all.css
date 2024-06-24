@@ -1,0 +1,475 @@
+*{
+    margin:0;
+   font-family: Arial;
+   border:border-box;
+}
+.link {
+    color: inherit; /* Hereda el color del padre */
+    text-decoration: none; /* Elimina el subrayado */
+    cursor: pointer; /* Cambia el cursor a una mano */
+  }
+  
+  .link:hover {
+    text-decoration: underline; /* Opcional: subraya el texto al pasar el ratón por encima */
+  }
+  
+.navbar{
+    height:  70px;
+    background-color: #6CD4FF;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-logo{
+    height: 50px;
+    width: 100px;
+}
+.logo{
+    background-image: url("Images/logopequeño.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 22px;
+    height: 50px;
+}
+.empresa{
+    color: rgb(0, 0, 0);
+    margin-left: -2px;
+    align-items: center;
+}
+.slogan{
+    font-size: 0.5rem;
+    margin-left: -3px;
+    color: rgb(76, 80, 77);
+    align-items: center;
+}
+/*caja de busqueda*/
+.nav-search{
+    display: flex;
+    justify-content: space-evenly ;
+    background-color: black;
+    width: 620px;
+    height: 45px;
+    border-radius: 4px;
+}
+.search-select{
+    background-color: rgb(233, 146, 16);
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px ;
+    border: none;
+}
+.search-input{
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+}
+.search-icon{
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: rgb(233, 146, 16);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px ;
+    border: none;
+
+}
+/* inicio de sedion*/
+span{
+    font-size: 0.7rem;
+}
+.nav-second{
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+/*carrito*/
+.nav-cart i{
+    font-size: 30px;
+}
+.nav-cart{
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+/*redess sociales*/
+.redsocial{
+    display: flex;
+}
+.nav-instagram{
+    font-size: 30px;
+    margin: 5px;
+}
+.nav-tiktok{
+    font-size: 30px;
+    margin: 5px;
+}
+.nav-what{
+    font-size: 30px;
+    margin: 5px;
+}
+.nav-fb{
+    font-size: 30px;
+    margin: 5px;
+}
+/*barra de navegaciones*/
+.panel{
+    height: 35px;
+    background-color:#1286CE ;   
+    display: flex;
+    color: azure;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.panel-ops p{
+    display: inline;
+    margin-left: 10px;
+}
+.panel-ops{
+    width: 80%;
+    font-size: 0.85rem;
+}
+.panel-deals{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+/* Carrusel*/
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.carousel-slide {
+    display: none;
+    height: 600px;
+    background: #ccc;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.carousel-prev {
+    left: 10px; /* Posición a la izquierda */
+}
+
+.carousel-next {
+    right: 10px; /* Posición a la derecha */
+}
+
+/* Botón de WhatsApp */
+/* Estilo base del botón de WhatsApp */
+.whatsapp-button {
+    background-color: #25d366; /* Color de fondo de WhatsApp */
+    color: #fff; /* Color del texto */
+    border: none;
+    border-radius: 50%; /* Botón redondeado */
+    width: 65px; /* Aumento de tamaño en 5px */
+    height: 65px; /* Aumento de tamaño en 5px */
+    font-size: 24px;
+    position: fixed; /* Posición fija para que siempre esté visible */
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s ease; /* Transición de la animación */
+}
+
+/* Efecto de sacudida al pasar el mouse */
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+
+/* Efecto de sacudida continua */
+.fa-shake {
+    animation: shake 1s infinite; /* Aplica la animación shake */
+}
+
+/* Animación de sacudida */
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-3px, 0);
+    }
+    50% {
+        transform: translate(3px, 0);
+    }
+    75% {
+        transform: translate(-3px, 0);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+/* Animaciones */
+.carousel-slide {
+    animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; } 
+    to { opacity: 1; }
+}
+
+/* contenido*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección de oferta */
+.offer-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    margin-top: 1px;
+}
+
+.offer-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+/* Cuadrícula de productos */
+.product-grid {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Tarjeta de producto */
+.product-card {
+    display: flex;
+    width: 30%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 5px;
+    object-fit: cover;
+    margin-left: 10px; 
+}
+.product-details {
+    flex: 1;
+    padding: 10px; /* Asegura un pequeño espacio dentro de los detalles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% - 20px); /* Máximo ancho con 10px de margen a cada lado */
+}
+
+.product-price-old {
+    display: block;
+    font-size: 0.8rem;
+    color: #ff0000; /* Precio tachado en rojo */
+    text-decoration: line-through;
+}
+
+.product-price-new {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+/* marcas */
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7fafc; /* Color de fondo suave */
+    color: #333; /* Color de texto principal */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección de marcas */
+.brand-section {
+    padding: 50px 0;
+}
+
+.brand-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.brand-card {
+    width: 200px;
+    height: 200px; /* Altura fija para todos los cuadrados */
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.brand-card:hover {
+    transform: scale(1.05);
+}
+
+.brand-logo {
+    width: 80%; /* Ajusta el tamaño del logo */
+    height: auto;
+    object-fit: contain;
+}
+  
+/* footer */
+.profile-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 5px;
+    border-top: 2px solid rgb(88, 88, 88);
+    margin-top: 10px;
+    border-radius: 0;
+}
+
+.profile-image {
+    flex-basis: 30%;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-name {
+    color: #777777;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.profile-address {
+    font-size: 16px;
+    margin: 0;
+}
+
+.profile-content {
+    flex-basis: 70%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-sections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.section {
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.section-title {
+    color: #777777;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 0 0 5px 0; /* Espacio debajo del título */
+}
+
+.section ul {
+    color: #777777;
+    list-style-type: none;
+    padding: 40px;
+    margin: 0;
+}
+
+.section ul li {
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons div {
+    margin: 0 10px;
+    color: #777777;
+    font-size: 24px;
+}
