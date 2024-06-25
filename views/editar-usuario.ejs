@@ -4,28 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar Usuario</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Editar Usuario</h1>
-  <form action="/admin/editar-usuario/<%= usuario._id %>" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
-    <label for="apellidoPaterno">Apellido Paterno:</label>
-    <input type="text" id="apellidoPaterno" name="apellidoPaterno" value="<%= usuario.apellidoPaterno %>" required>
-    <label for="apellidoMaterno">Apellido Materno:</label>
-    <input type="text" id="apellidoMaterno" name="apellidoMaterno" value="<%= usuario.apellidoMaterno %>" required>
-    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-    <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<%= usuario.fechaNacimiento.toISOString().split('T')[0] %>" required>
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" value="<%= usuario.direccion %>" required>
-    <label for="dni">DNI:</label>
-    <input type="text" id="dni" name="dni" value="<%= usuario.dni %>" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value="<%= usuario.email %>" required>
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena" value="<%= usuario.contrasena %>" required>
-    <button type="submit">Guardar Cambios</button>
-  </form>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1 class="mt-5">Editar Usuario</h1>
+    <form action="/admin/editar-usuario/<%= usuario._id %>" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" value="<%= usuario.nombre %>" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="apellidoPaterno">Apellido Paterno</label>
+          <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="<%= usuario.apellidoPaterno %>" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="apellidoMaterno">Apellido Materno</label>
+          <input type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" value="<%= usuario.apellidoMaterno %>" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fechaNacimiento">Fecha de Nacimiento</label>
+          <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="form-control" value="<%= usuario.fechaNacimiento.toISOString().split('T')[0] %>" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" name="direccion" id="direccion" class="form-control" value="<%= usuario.direccion %>" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="dni">DNI</label>
+          <input type="text" name="dni" id="dni" class="form-control" value="<%= usuario.dni %>" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control" value="<%= usuario.email %>" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" name="contrasena" id="contrasena" class="form-control" value="<%= usuario.contrasena %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+
+  <%- include('partials/footer') %>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+

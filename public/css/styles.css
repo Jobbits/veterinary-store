@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    flex: 1; /* Para que ocupe el espacio disponible */
+  }
+  
+  .footer {
+    background-color: #f8f9fa; /* Color de fondo del footer */
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  footer.footer.mt-auto.py-3 {
+    margin-top: auto;
+  }
+  
