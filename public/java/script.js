@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const btnCart = document.querySelector('.container-icon');
-    const containerCartProducts = document.querySelector('.container-cart-products');
     const slides = document.querySelectorAll('.carousel-slide');
     const prevButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
-    let slideIndex = 1;
+    let slideIndex = 0;
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.style.display = i === index ? 'block' : 'none';
+            if (i === index) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
         });
     }
 
@@ -36,21 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const botonesAgregar = document.querySelectorAll('.agregar-carrito');
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', () => {
-            const producto = boton.closest('.producto');
-            const precio = producto.querySelector('.precio').textContent;
-            const nombre = producto.querySelector('h3').textContent;
+            const producto = boton.closest('.product-card');
+            const precio = producto.querySelector('.product-price-new').textContent;
+            const nombre = producto.querySelector('.product-name').textContent;
             alert(`Agregaste ${nombre} al carrito por ${precio}`);
         });
     });
-});
-document.addEventListener('DOMContentLoaded', function() {
+
     const usernameSpan = document.getElementById('username');
     const authLinks = document.getElementById('auth-links');
     const logoutBtn = document.getElementById('logout-btn');
 
     function updateUI(isLoggedIn, username) {
         if (isLoggedIn) {
-            usernameSpan.textContent = username;
+            usernameSpan.textContent = `${username}`;
             authLinks.style.display = 'none';
             logoutBtn.style.display = 'block';
         } else {
@@ -61,14 +62,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function validateLogin() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const username = localStorage.getItem('username') || 'Invitado';
-
-        updateUI(isLoggedIn, username);
+        fetch('/estado-sesion')
+            .then(response => response.json())
+            .then(data => {
+                const isLoggedIn = data.isLoggedIn;
+                const username = data.username || 'Invitado'; // Si no hay nombre de usuario, usar 'Invitado'
+                updateUI(isLoggedIn, username);
+                localStorage.setItem('isLoggedIn', isLoggedIn.toString());
+                localStorage.setItem('username', username);
+            })
+            .catch(error => console.error('Error al verificar el estado de la sesión:', error));
     }
 
     logoutBtn.addEventListener('click', function() {
-        localStorage.setItem('isLoggedIn', 'false');
+        localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('username');
         updateUI(false, 'Invitado');
     });
@@ -78,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             validateLogin();
         }
     });
-
+    
     validateLogin();
+    
 });
+

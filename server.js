@@ -6,8 +6,10 @@ const bcrypt = require('bcryptjs');
 const ejs = require('ejs');
 const session = require('express-session');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 
 // Configurar body-parser para manejar datos codificados en URL
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +47,7 @@ async function conectarBD() {
 // Definir esquemas y modelos
 const Schema = mongoose.Schema;
 
-const usuarioSchema = new Schema({
+const usuarioSchema = new mongoose.Schema({
   nombre: String,
   apellidoPaterno: String,
   apellidoMaterno: String,
@@ -55,12 +57,21 @@ const usuarioSchema = new Schema({
   email: String,
   contrasena: String,
 });
+// Configurar middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(session({
+  secret: 'mysecret',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 const adminSchema = new Schema({
   username: String,
   password: String,
   role: { type: String, default: 'admin' }
 });
+
 
 // Encriptar la contraseña antes de guardar el administrador
 adminSchema.pre('save', async function(next) {
@@ -91,6 +102,20 @@ async function autenticarAdmin(username, password) {
   }
   return admin;
 }
+
+//// Función para autenticar al usuario
+async function autenticarUsuario(email, password) {
+  const usuario = await Usuario.findOne({ email });
+  if (!usuario) {
+    throw new Error('Email o contraseña incorrectos');
+  }
+  const isMatch = await bcrypt.compare(password, usuario.contrasena);
+  if (!isMatch) {
+    throw new Error('Email o contraseña incorrectos');
+  }
+  return usuario;
+}
+
 
 // Función para crear usuario administrativo si no existe
 async function crearUsuarioAdministrativo() {
@@ -134,23 +159,38 @@ app.get('/registro', (req, res) => {
 // Procesar registro de usuario (ruta POST)
 app.post('/registroUsuario', async (req, res) => {
   try {
+    const { nombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, direccion, dni, email, contrasena } = req.body;
+
+    // Verifica que todos los campos estén presentes
+    if (!nombre || !apellidoPaterno || !apellidoMaterno || !fechaNacimiento || !direccion || !dni || !email || !contrasena) {
+      return res.status(400).send('Todos los campos son obligatorios');
+    }
+
+    // Hashear la contraseña antes de guardarla
+    const hashedPassword = await bcrypt.hash(contrasena, 10);
     const nuevoUsuario = new Usuario({
-      nombre: req.body.nombre,
-      apellidoPaterno: req.body.apellidoPaterno,
-      apellidoMaterno: req.body.apellidoMaterno,
-      fechaNacimiento: new Date(req.body.fechaNacimiento),
-      direccion: req.body.direccion,
-      dni: req.body.dni,
-      email: req.body.email,
-      contrasena: req.body.contrasena,
+      nombre,
+      apellidoPaterno,
+      apellidoMaterno,
+      fechaNacimiento: new Date(fechaNacimiento),
+      direccion,
+      dni,
+      email,
+      contrasena: hashedPassword,
     });
 
     await nuevoUsuario.save();
-    res.send('Usuario registrado correctamente');
+    res.status(201).redirect('/index.html'); // Redirigir al index.html después de un registro exitoso
   } catch (error) {
-    res.status(400).send('Error al registrar usuario: ' + error.message);
+    console.error('Error al registrar usuario:', error.message);
+    if (error.code === 11000) {
+      res.status(400).send('Error: Email o DNI ya están en uso');
+    } else {
+      res.status(500).send('Error al registrar usuario');
+    }
   }
 });
+
 // Página de inicio de sesión para administradores
 app.get('/login', (req, res) => {
   res.render('login');
@@ -165,6 +205,50 @@ app.post('/login', async (req, res) => {
     res.redirect('/admin');
   } catch (error) {
     res.status(401).send(error.message);
+  }
+});
+
+// Ruta para iniciar sesión
+app.post('/login1', async (req, res) => {
+  const { email, contrasena } = req.body;
+  
+  // Depuración para verificar los datos recibidos
+  console.log('Datos recibidos en req.body:', req.body);
+
+  try {
+    // Verificar si el campo email o contrasena está undefined
+    if (!email || !contrasena) {
+      throw new Error('Email o contraseña no proporcionados');
+    }
+
+    const user = await Usuario.findOne({ email });
+    if (!user) {
+      console.log('Usuario no encontrado para el email:', email);
+      throw new Error('Email o contraseña incorrectos');
+    }
+
+    console.log('Usuario encontrado:', user);
+
+    const isMatch = await bcrypt.compare(contrasena, user.contrasena);
+    if (!isMatch) {
+      console.log('Contraseña incorrecta para el usuario:', user.email);
+      throw new Error('Email o contraseña incorrectos');
+    }
+
+    req.session.user = user;
+    res.redirect('/'); // Redirigir al usuario al index.html después del inicio de sesión exitoso
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error.message);
+    res.status(401).send('Email o contraseña incorrectos');
+  }
+});
+
+// Ruta para verificar el estado de la sesión
+app.get('/estado-sesion', (req, res) => {
+  if (req.session.user) {
+    res.json({ isLoggedIn: true, username: req.session.user.nombre });
+  } else {
+    res.json({ isLoggedIn: false, username: 'Invitado' });
   }
 });
 
@@ -243,6 +327,15 @@ app.post('/admin/editar-usuario/:id', verificarSesion, async (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/login');
+});
+app.get('/logout1', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+    } else {
+      res.redirect('/');
+    }
+  });
 });
 
 // Iniciar el servidor
