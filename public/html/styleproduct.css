@@ -29,26 +29,145 @@ main {
     margin-bottom: 5px;
 }
 
+/* General styles for the product section */
 .products {
-    width: 75%;
-    margin-left: 5%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-}
-
-.product {
-    background-color: #fff;
+    justify-content: center;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px);
 }
 
-.product h3 {
-    margin-top: 0;
+/* Styles for each product card */
+.product .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product p {
-    margin: 0;
+/* Hover effect for the cards */
+.product .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the product images */
+.product .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 250px; /* Adjust the height to make the images larger */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+/* Styling the card body */
+.product .card-body {
+    text-align: center;
+}
+
+/* Styling the product titles */
+.product .card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styling the product prices */
+.product .card-text {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.product .btn {
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 20px; /* Make buttons rounded */
+    font-size: 1.2em; /* Increase button font size */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+/* Primary button styling */
+.product .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin: 5px;
+    padding: 2px; 
+    color: #fff; 
+}
+
+.product .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Secondary button styling */
+.product .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 2px; 
+    color: #fff;
+}
+
+.product .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #4e555b;
+}
+.product .btn-secondary:active,
+.product .btn-secondary:focus {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff; /* Ensure text color remains white */
+}
+.product .btn-primary:active,
+.product .btn-primary:focus {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff; /* Ensure text color remains white */
+}
+.panel-all {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.panel-all:hover .dropdown-content {
+    display: block;
+}
+.panel-all {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    display: inline-block;
+    background-color: #007bff; /* Color de fondo del círculo */
+    color: white; /* Color del texto */
+    border-radius: 50%; /* Hace que el elemento sea circular */
+    width: 24px; /* Tamaño del círculo */
+    height: 24px;
+    text-align: center;
+    line-height: 24px; /* Centra verticalmente el número */
+    margin-top: -100px; /* Ajusta la posición vertical */
 }

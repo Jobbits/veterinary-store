@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Estilos adicionales para centrar la tabla y alinearla a la derecha */
+    .container {
+      text-align: center; /* Centrar el contenido del contenedor */
+    }
+    .table-wrapper {
+      margin-left: -200px; /* Mover la tabla a la derecha */
+      width: 100%; /* Ancho de la tabla */
+    }
+    /* Estilos para los botones */
+    .btn-editar {
+      background-color: #ffc107; /* Color de fondo amarillo */
+      border-color: #ffc107; /* Color de borde amarillo */
+      color: #212529; /* Color de texto oscuro */
+      height: 30px;
+      width: 70px;
+    }
+    .btn-eliminar {
+      background-color: #dc3545; /* Color de fondo rojo */
+      border-color: #dc3545; /* Color de borde rojo */
+      color: #fff; /* Color de texto blanco */
+      margin-top: 10px;
+      height: 30px;
+      width: 70px;
+    }
+  </style>
+</head>
+<%- include('../partials/navbar') %>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Gestión de Usuarios</h1>
+    <a href="/admin/nuevo-usuario" class="btn btn-primary mb-3">Nuevo Usuario</a> <!-- Botón para nuevo usuario -->
+    <div class="table-wrapper">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Email</th>
+            <th>Fecha de Nacimiento</th>
+            <th>DNI</th>
+            <th>Dirección</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usuarios.forEach(usuario => { %>
+            <tr>
+              <td><%= usuario.nombre %></td>
+              <td><%= usuario.apellidoPaterno %></td>
+              <td><%= usuario.apellidoMaterno %></td>
+              <td><%= usuario.email %></td>
+              <td><%= usuario.fechaNacimiento.toDateString() %></td>
+              <td><%= usuario.dni %></td>
+              <td><%= usuario.direccion %></td>
+              <td><%= usuario.contrasena %></td>
+              <td>
+                <a href="/admin/editar-usuario/<%= usuario._id %>" class="btn btn-warning btn-sm btn-editar">Editar</a>
+                <form action="/admin/eliminar-usuario/<%= usuario._id %>" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-danger btn-sm btn-eliminar">Eliminar</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%- include('../partials/footer') %>
+</body>
+</html>

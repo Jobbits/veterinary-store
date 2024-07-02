@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Usuario</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Crear Nuevo Usuario</h1>
+    <form action="/admin/nuevo-usuario" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellidoPaterno">Apellido Paterno:</label>
+        <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" required>
+      </div>
+      <div class="form-group">
+        <label for="apellidoMaterno">Apellido Materno:</label>
+        <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" class="form-control" id="dni" name="dni" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Usuario</button>
+    </form>
+  </div>
+</body>
+</html>

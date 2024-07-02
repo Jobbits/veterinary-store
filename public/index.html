@@ -6,7 +6,7 @@
     <title>Medivet</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-iDRIWa3iFYlSq6u120ox1wbt3AlVinbgn30ZvQnuxWTe+I8fFLwa/uekb5U64TGvsK2t8V844rQRCIFORFBNiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header>
@@ -80,7 +80,7 @@
                     <a href="index.html" class="link">Inicio</a>
                 </p>
                 <p>
-                    <a href="tiendaproductos.html" class="link">Productos</a>
+                    <a href="html/tiendaproductos.html" class="link">Productos</a>
                 </p>
                 <p>
                     <a href="nosotros.html" class="link">Nosotros</a>
@@ -90,9 +90,9 @@
                     <a href="contactos.html" class="link">Contactos</a>
                 </p>
             </div>
-            <div class="panel-deals">
-                Bien Social: Adopta a tu mascota
-            </div>
+            <p>
+                <a href="html/adoptar.html" class="link" target="_blank"> Bien Social: Adopta a tu mascota</a>
+            </p>
         </div>
     </header>
     <main>
@@ -112,7 +112,12 @@
     </main>
     <section class="offer-section">
         <div class="container">
-            <h2 class="offer-title">Oferta de Cachorros</h2>
+            <h2 class="offer-title">Ofertas del Día </h2>
+            <div class="container">
+                <div id="product-list" class="product-list">
+                  <!-- Los productos se cargarán aquí dinámicamente -->
+                </div>
+              </div>
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-image">
@@ -291,6 +296,56 @@
             </div>
         </div>   
     </footer>
-    <script src="java/script.js"></script>     
+    <script src="java/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          fetch('/api/productos')
+            .then(response => response.json())
+            .then(data => {
+              const productList = document.getElementById('product-list');
+              data.forEach(producto => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+    
+                const productImage = document.createElement('div');
+                productImage.className = 'product-image';
+                const img = document.createElement('img');
+                img.src = `/${producto.imagen}`; // Cambia esta línea para cargar desde la carpeta uploads
+                img.alt = producto.nombre;
+                productImage.appendChild(img);
+    
+                const productDetails = document.createElement('div');
+                productDetails.className = 'product-details';
+    
+                const productPriceNew = document.createElement('span');
+                productPriceNew.className = 'product-price-new';
+                productPriceNew.textContent = `S/.${producto.precio}`;
+    
+                const productPriceOld = document.createElement('span');
+                productPriceOld.className = 'product-price-old';
+                productPriceOld.textContent = `S/.${(producto.precio * 1.2).toFixed(2)}`;// Asume que el precio viejo es 20% más alto, cambia esto según sea necesario
+    
+                const productName = document.createElement('h3');
+                productName.className = 'product-name';
+                productName.textContent = producto.nombre;
+    
+                const productDescription = document.createElement('p');
+                productDescription.className = 'product-description';
+                productDescription.textContent = producto.descripcion;
+    
+                productDetails.appendChild(productPriceNew);
+                productDetails.appendChild(productPriceOld);
+                productDetails.appendChild(productName);
+                productDetails.appendChild(productDescription);
+    
+                productCard.appendChild(productImage);
+                productCard.appendChild(productDetails);
+    
+                productList.appendChild(productCard);
+              });
+            })
+            .catch(error => console.error('Error al cargar los productos:', error));
+        });
+      </script>
 </body>
 </html>

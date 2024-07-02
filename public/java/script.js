@@ -89,4 +89,31 @@ document.addEventListener("DOMContentLoaded", () => {
     validateLogin();
     
 });
+// javascript.js
 
+document.addEventListener('DOMContentLoaded', () => {
+    const productosContainer = document.getElementById('productos-lista');
+  
+    // Realizar solicitud GET al servidor para obtener los productos
+    fetch('/api/productos')
+      .then(response => response.json())
+      .then(data => {
+        // Iterar sobre los productos y agregarlos al contenedor en el HTML
+        data.forEach(producto => {
+          const productoElement = document.createElement('div');
+          productoElement.classList.add('producto');
+          productoElement.innerHTML = `
+            <h2>${producto.nombre}</h2>
+            <p>${producto.descripcion}</p>
+            <p>Precio: $ ${producto.precio}</p>
+            <p>Stock: ${producto.stock}</p>
+            <p>Categoría: ${producto.categoria}</p>
+          `;
+          productosContainer.appendChild(productoElement);
+        });
+      })
+      .catch(error => {
+        console.error('Error al obtener los productos:', error);
+      });
+  });
+  

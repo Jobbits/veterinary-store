@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Producto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Editar Producto</h1>
+    <form action="/admin/editar-producto/<%= producto._id %>" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= producto.nombre %>" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<%= producto.precio %>" required>
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock:</label>
+        <input type="number" class="form-control" id="stock" name="stock" value="<%= producto.stock %>" required>
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoría:</label>
+        <select class="form-control" id="categoria" name="categoria" required>
+          <option value="Alimentos" <%= producto.categoria === 'Alimentos' ? 'selected' : '' %>>Alimentos</option>
+          <option value="Juguetes" <%= producto.categoria === 'Juguetes' ? 'selected' : '' %>>Juguetes</option>
+          <option value="Medicamentos" <%= producto.categoria === 'Medicamentos' ? 'selected' : '' %>>Medicamentos</option>
+          <option value="Productos de higiene" <%= producto.categoria === 'Productos de higiene' ? 'selected' : '' %>>Productos de higiene</option>
+          <option value="Accesorios" <%= producto.categoria === 'Accesorios' ? 'selected' : '' %>>Accesorios</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="marca">Marca:</label>
+        <select class="form-control" id="marca" name="marca" required>
+          <option value="Premier" <%= producto.marca === 'Premier' ? 'selected' : '' %>>Premier</option>
+          <option value="Hill's" <%= producto.marca === 'Hill\'s' ? 'selected' : '' %>>Hill's</option>
+          <option value="Whiskas" <%= producto.marca === 'Whiskas' ? 'selected' : '' %>>Whiskas</option>
+          <option value="Pedigree" <%= producto.marca === 'Pedigree' ? 'selected' : '' %>>Pedigree</option>
+          <option value="Royal Canin" <%= producto.marca === 'Royal Canin' ? 'selected' : '' %>>Royal Canin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ofertasYDescuentos">Ofertas y Descuentos:</label>
+        <select class="form-control" id="ofertasYDescuentos" name="ofertasYDescuentos" required>
+          <option value="Seco" <%= producto.ofertasYDescuentos === 'Seco' ? 'selected' : '' %>>Seco</option>
+          <option value="Húmedo" <%= producto.ofertasYDescuentos === 'Húmedo' ? 'selected' : '' %>>Húmedo</option>
+          <option value="Natural/Orgánico" <%= producto.ofertasYDescuentos === 'Natural/Orgánico' ? 'selected' : '' %>>Natural/Orgánico</option>
+          <option value="Dietético/Medicinal" <%= producto.ofertasYDescuentos === 'Dietético/Medicinal' ? 'selected' : '' %>>Dietético/Medicinal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tipoMascota">Tipo de Mascota:</label>
+        <select class="form-control" id="tipoMascota" name="tipoMascota" required>
+          <option value="Perro" <%= producto.tipoMascota === 'Perro' ? 'selected' : '' %>>Perro</option>
+          <option value="Gato" <%= producto.tipoMascota === 'Gato' ? 'selected' : '' %>>Gato</option>
+          <option value="Aves" <%= producto.tipoMascota === 'Aves' ? 'selected' : '' %>>Aves</option>
+          <option value="Pez" <%= producto.tipoMascota === 'Pez' ? 'selected' : '' %>>Pez</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="edadMascota">Edad de la Mascota:</label>
+        <select class="form-control" id="edadMascota" name="edadMascota" required>
+          <option value="Cachorros" <%= producto.edadMascota === 'Cachorros' ? 'selected' : '' %>>Cachorros</option>
+          <option value="Adultos" <%= producto.edadMascota === 'Adultos' ? 'selected' : '' %>>Adultos</option>
+          <option value="Senior" <%= producto.edadMascota === 'Senior' ? 'selected' : '' %>>Senior</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tamanoMascota">Tamaño de la Mascota:</label>
+        <select class="form-control" id="tamanoMascota" name="tamanoMascota" required>
+          <option value="Pequeño" <%= producto.tamanoMascota === 'Pequeño' ? 'selected' : '' %>>Pequeño</option>
+          <option value="Mediano" <%= producto.tamanoMascota === 'Mediano' ? 'selected' : '' %>>Mediano</option>
+          <option value="Grande" <%= producto.tamanoMascota === 'Grande' ? 'selected' : '' %>>Grande</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tipoAlimento">Tipo de Alimento:</label>
+        <select class="form-control" id="tipoAlimento" name="tipoAlimento" required>
+          <option value="Seco" <%= producto.tipoAlimento === 'Seco' ? 'selected' : '' %>>Seco</option>
+          <option value="Húmedo" <%= producto.tipoAlimento === 'Húmedo' ? 'selected' : '' %>>Húmedo</option>
+          <option value="Natural/Orgánico" <%= producto.tipoAlimento === 'Natural/Orgánico' ? 'selected' : '' %>>Natural/Orgánico</option>
+          <option value="Dietético/Medicinal" <%= producto.tipoAlimento === 'Dietético/Medicinal' ? 'selected' : '' %>>Dietético/Medicinal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen:</label>
+        <input type="text" class="form-control" id="imagen" name="imagen" value="<%= producto.imagen %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+    </form>
+  </div>
+</body>
+</html>

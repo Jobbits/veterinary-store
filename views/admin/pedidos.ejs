@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Pedidos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Gestión de Pedidos</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% pedidos.forEach(pedido => { %>
+          <tr>
+            <td><%= pedido._id %></td>
+            <td><%= pedido.fecha %></td>
+            <td><%= pedido.estado %></td>
+            <td>
+              <a href="/admin/editar-pedido/<%= pedido._id %>" class="btn btn-warning btn-sm">Editar</a>
+              <form action="/admin/eliminar-pedido/<%= pedido._id %>" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

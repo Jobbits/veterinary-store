@@ -24,7 +24,12 @@
             </div>
             <div class="nav-search">
                 <select class="search-select">
-                    <option>All</option>
+                    <option value="All">All</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Juguetes">Juguetes</option>
+                    <option value="Medicamentos">Medicamentos</option>
+                    <option value="Productos de higiene">Productos de higiene</option>
+                    <option value="Accesorios">Accesorios</option>
                 </select>
                 <input placeholder="Buscar Medivet" class="search-input">
                 <div class="search-icon">
@@ -43,9 +48,9 @@
                 <p><span>Devoluciones</span></p>
                 <p class="nav-second">& Lista</p>   
             </div>
-            <div class="nav-cart border">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Cart
+            <div class="cart">
+                <i class="fa-solid fa-shopping-cart fa-2x"></i>
+                <span id="cart-count" class="cart-count">0</span>
             </div>
             <div class="redsocial">
                 <div class="nav-fb">
@@ -71,9 +76,16 @@
             </div>
         </div>
         <div class="panel">
-            <div class="panel-all">
+            <div class="panel-all dropdown">
                 <i class="fa-solid fa-bars"></i>
-                All
+                <span>All</span>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="Alimentos" class="filter-checkbox"> Alimentos</label>
+                    <label><input type="checkbox" value="Juguetes" class="filter-checkbox"> Juguetes</label>
+                    <label><input type="checkbox" value="Medicamentos" class="filter-checkbox"> Medicamentos</label>
+                    <label><input type="checkbox" value="Productos de higiene" class="filter-checkbox"> Productos de higiene</label>
+                    <label><input type="checkbox" value="Accesorios" class="filter-checkbox"> Accesorios</label>
+                </div>
             </div>
             <div class="panel-ops">
                 <p>
@@ -87,7 +99,7 @@
                 </p>
                 <p>Marcas</p>
                 <p>
-                    <a href="contactos.html" class="link">Contactanos</a>
+                    <a href="../contactos.html" class="link">Contactanos</a>
                 </p>
             </div>
             <div class="panel-deals">
@@ -154,26 +166,54 @@
                 <label><input type="checkbox" value="high" class="filter-checkbox"> Más de $50</label>
             </div>
         </aside>
-        <section class="products">
-            <div class="product" data-category="perro" data-price="low">
-                <h3>Juguete para Perro</h3>
-                <p>$15</p>
+        <section class="products row">
+            <div class="col-md-4 product" data-category="Alimentos" data-price="10" data-brand="Whiskas" data-petType="pez" data-petAge="Adultos" data-petSize="Mediano" data-foodType="Seco">
+                <div class="card">
+                    <img src="../Images/images (1).jpeg" class="card-img-top" alt="Alimento para Peces">
+                    <div class="card-body">
+                        <h5 class="card-title">Alimento para Peces</h5>
+                        <p class="card-text">$10</p>
+                        <button class="btn btn-primary add-to-cart">Agregar a mi carrito</button>
+                        <a href="#" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
             </div>
-            <div class="product" data-category="gato" data-price="medium">
-                <h3>Rascador para Gato</h3>
-                <p>$30</p>
+            <div class="col-md-4 product" data-category="Juguetes" data-price="15" data-brand="Premier" data-petType="perro" data-petAge="Cachorros" data-petSize="Pequeno" data-foodType="Seco">
+                <div class="card">
+                    <img src="../Images/PELOTA-DE-COLORES-PARA-MASCOTAS-1-254617944.webp" class="card-img-top" alt="Juguete para Perro">
+                    <div class="card-body">
+                        <h5 class="card-title">Juguete para Perro</h5>
+                        <p class="card-text">$15</p>
+                        <button class="btn btn-primary add-to-cart">Agregar a mi carrito</button>
+                        <a href="#" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
             </div>
-            <div class="product" data-category="ave" data-price="high">
-                <h3>Jaula para Ave</h3>
-                <p>$75</p>
+            <div class="col-md-4 product" data-category="Juguetes" data-price="30" data-brand="Hills" data-petType="gato" data-petAge="Adultos" data-petSize="Mediano" data-foodType="Humedo">
+                <div class="card">
+                    <img src="../Images/image-9de84486097b491b9b1fc68fc56093ad.webp" class="card-img-top" alt="Rascador para Gato">
+                    <div class="card-body">
+                        <h5 class="card-title">Rascador para Gato</h5>
+                        <p class="card-text">$30</p>
+                        <button class="btn btn-primary add-to-cart">Agregar a mi carrito</button>
+                        <a href="#" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
             </div>
-            <div class="product" data-category="pez" data-price="low">
-                <h3>Alimento para Peces</h3>
-                <p>$10</p>
+            <div class="col-md-4 product" data-category="Accesorios" data-price="75" data-brand="Royal Canin" data-petType="ave" data-petAge="Senior" data-petSize="Grande" data-foodType="Natural/Organico">
+                <div class="card">
+                    <img src="../Images/D_NQ_NP_678358-MPE53437097937_012023-O.webp" class="card-img-top" alt="Jaula para Ave">
+                    <div class="card-body">
+                        <h5 class="card-title">Jaula para Ave</h5>
+                        <p class="card-text">$75</p>
+                        <button class="btn btn-primary add-to-cart">Agregar a mi carrito</button>
+                        <a href="#" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
             </div>
-            <!-- Agrega más productos aquí -->
         </section>
     </main>
+   
     <footer>
         <div class="profile-card">
             <div class="profile-image">
@@ -231,5 +271,137 @@
     </footer>
     <script src="../java/scriptproducto.js"></script>
     <script src="../java/script.js"></script> 
+    
 </body>
+<script>
+    document.querySelector('.search-input').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const products = document.querySelectorAll('.product');
+    
+        products.forEach(product => {
+            const productName = product.querySelector('h5').textContent.toLowerCase();
+            const productPrice = product.querySelector('p').textContent.toLowerCase();
+            if (productName.includes(searchTerm) || productPrice.includes(searchTerm)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+            const products = document.querySelectorAll('.product');
+        
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterProducts);
+            });
+        
+            function filterProducts() {
+                const activeFilters = [];
+        
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        activeFilters.push(checkbox.value);
+                    }
+                });
+        
+                products.forEach(product => {
+                    const category = product.dataset.category;
+                    if (activeFilters.length === 0 || activeFilters.includes(category)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+        });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const select = document.querySelector('.search-select');
+                const products = document.querySelectorAll('.product');
+            
+                select.addEventListener('change', filterProducts);
+            
+                function filterProducts() {
+                    const selectedCategory = select.value;
+                    products.forEach(product => {
+                        const category = product.dataset.category;
+                        if (selectedCategory === 'All' || category === selectedCategory) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                }
+            });
+            </script>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const select = document.querySelector('.search-select');
+                    const products = document.querySelectorAll('.product');
+                    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+                    const cartCount = document.getElementById('cart-count');
+                    const cartTotal = document.getElementById('cart-total');
+                    let cartQuantity = 0;
+                    let cartTotalAmount = 0;
+                
+                    select.addEventListener('change', filterProducts);
+                
+                    addToCartButtons.forEach(button => {
+                        button.addEventListener('click', addToCart);
+                    });
+                
+                    function filterProducts() {
+                        const selectedCategory = select.value;
+                        products.forEach(product => {
+                            const category = product.dataset.category;
+                            if (selectedCategory === 'All' || category === selectedCategory) {
+                                product.style.display = 'block';
+                            } else {
+                                product.style.display = 'none';
+                            }
+                        });
+                    }
+                
+                    function addToCart(event) {
+                        const product = event.target.closest('.product');
+                        const price = parseFloat(product.dataset.price);
+                        cartQuantity++;
+                        cartTotalAmount += price;
+                        cartCount.textContent = cartQuantity;
+                        cartTotal.textContent = `$${cartTotalAmount.toFixed(2)}`;
+                    }
+                
+                    const paymentMethodSelect = document.getElementById('paymentMethod');
+                    const cardDetails = document.getElementById('cardDetails');
+                    const yapeDetails = document.getElementById('yapeDetails');
+                
+                    paymentMethodSelect.addEventListener('change', () => {
+                        if (paymentMethodSelect.value === 'tarjeta') {
+                            cardDetails.style.display = 'block';
+                            yapeDetails.style.display = 'none';
+                        } else if (paymentMethodSelect.value === 'yape') {
+                            cardDetails.style.display = 'none';
+                            yapeDetails.style.display = 'block';
+                        }
+                    });
+                
+                    const paymentForm = document.getElementById('paymentForm');
+                    paymentForm.addEventListener('submit', (event) => {
+                        event.preventDefault();
+                        // Aquí puedes implementar la lógica para procesar el pago
+                        alert('Pago realizado con éxito');
+                        // Reiniciar el carrito
+                        cartQuantity = 0;
+                        cartTotalAmount = 0;
+                        cartCount.textContent = cartQuantity;
+                        cartTotal.textContent = `$${cartTotalAmount.toFixed(2)}`;
+                    });
+                });
+                </script>
+        
 </html>
